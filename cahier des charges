@@ -1,7 +1,7 @@
 BUT : Permettre de télécharger des jeux ipad sur internet via le compte
 
-Base de donnée utilisé
-	PostGress SQL intérêt : champs un JSOn pour faire des requête dessus
+Base de donnée utilisée
+	PostGreSQL intérêt : champs JSON pour faire des requête dessus
 
 Question a résoudre
 
@@ -21,7 +21,7 @@ jeton d'authentification pour acceder a l'ipad .?? l'ipad genere un jeton et est
 
 Jeux
 	ensemble de fichier/ Un dossier
-	shortName  (id) chiane de caractere
+	shortName  (id) chaine de caracteres
 	(path) // a mettre?
 	version du jeu //
 
