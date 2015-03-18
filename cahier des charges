@@ -1,0 +1,41 @@
+BUT : Permettre de télécharger des jeux ipad sur internet via le compte
+
+Base de donnée utilisé
+	PostGress SQL intérêt : champs un JSOn pour faire des requête dessus
+
+Question a résoudre
+
+Quand les users sont connecté ?
+Quand les users sont connecté a l'ipad ? ( valid login mdp)
+Quans ont ils téléchargés les jeux ?
+( Connaitre la version du jeu installé) ?
+Connaitre la liste des ipad de l'utilisateur?
+
+
+Utilisateur
+	password : hash
+	nom/DisplayName
+	emial/login id
+Utilsateur peut etre un admin ou pas
+jeton d'authentification pour acceder a l'ipad .?? l'ipad genere un jeton et estt stocké dans user et peut etre changé ce qui imposera de se relogguer si different.
+
+Jeux
+	ensemble de fichier/ Un dossier
+	shortName  (id) chiane de caractere
+	(path) // a mettre?
+	version du jeu //
+
+Organisation d'utilisateur
+	// possede un nom ?
+	plusieurs utilisateurs peuvent appartenir a une organisation
+	un utilisateur ne peut appartenir a plus d'une organisation a la fois
+
+Différence entre administrateur plateforme et administrateur organisation
+	-> un champ acces
+
+Date de creation / date de modification des fichiers
+	-> chaque table aura une dateCreation et dateModification
+
+Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocké ?
+
+
