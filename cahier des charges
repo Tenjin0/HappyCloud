@@ -5,19 +5,19 @@ Base de donnée utilisée
 
 Question a résoudre
 
-Quand les users sont connecté ?
-Quand les users sont connecté a l'ipad ? ( valid login mdp)
-Quans ont ils téléchargés les jeux ?
-( Connaitre la version du jeu installé) ?
+Quand les users sont connectés ?
+Quand les users sont connectés a l'ipad ? ( validation login mdp)
+Quand ont ils téléchargés les jeux ?
+// ( Connaitre la version du jeu installé) ?
 Connaitre la liste des ipad de l'utilisateur?
-Créer un script qui nénère la BDD
+Créer un script qui génère la BD
 
 Utilisateur
 	password : hash
 	nom/DisplayName
 	email/login id
 Utilsateur peut etre un admin ou pas
-jeton d'authentification pour acceder a l'ipad .?? l'ipad genere un jeton et estt stocké dans user et peut etre changé ce qui imposera de se relogguer si different.
+jeton d'authentification pour acceder a l'ipad .?? l'ipad genere un jeton et est stocké dans user et peut etre changé ce qui imposera de se relogguer si different.
 
 Jeux
 	ensemble de fichier/ Un dossier
