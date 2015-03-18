@@ -1,4 +1,4 @@
-BUT : Permettre de télécharger des jeux ipad sur internet via le compte
+BUT : Permettre de télécharger/gérer des jeux ipad sur internet via le compte
 
 Base de donnée utilisée
 	PostGreSQL intérêt : champs JSON pour faire des requête dessus
@@ -15,7 +15,7 @@ Connaitre la liste des ipad de l'utilisateur?
 Utilisateur
 	password : hash
 	nom/DisplayName
-	emial/login id
+	email/login id
 Utilsateur peut etre un admin ou pas
 jeton d'authentification pour acceder a l'ipad .?? l'ipad genere un jeton et estt stocké dans user et peut etre changé ce qui imposera de se relogguer si different.
 
@@ -31,11 +31,21 @@ Organisation d'utilisateur
 	un utilisateur ne peut appartenir a plus d'une organisation a la fois
 
 Différence entre administrateur plateforme et administrateur organisation
-	-> un champ acces
+	-> un champ acces ?
 
-Date de creation / date de modification des fichiers
-	-> chaque table aura une dateCreation et dateModification
+Date de creation / date de modification des fichiers autre données ?
+	-> chaque table aura une dateCreation et dateModification ?
 
-Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocké ?
+Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocker ?
 
 
+MEMO
+qqoqpc
+Q 	Qui ? 	De qui, Avec qui, Pour le compte de qui… 	Responsable, acteur, sujet, cible…
+Q 	Quoi ? 	Quoi, Avec quoi, en relation avec quoi… 	Outil, objet, résultat, objectif…
+O 	Où ? 	Où, par où, vers où… 	Lieu, service…
+Q 	Quand ? 	tous les quand, à partir de quand, jusqu'à quand… 	Dates, périodicité, durée…
+C 	Comment ? 	de quelle façon, dans quelles conditions, par quel procédé… 	Procédure, technique, action, moyens matériel…
+C 	Combien ? 	Dans quelle mesure, valeurs en cause, à quelle dose… 	Quantités, budget…
+P 	Pourquoi ? 	Cause, facteur déclenchant 	Justification par les causes qui ont amené à… (la « raison » d'être, la croyance)
+Pour quoi ? 	Motif, finalité, objectif 	Justification par le souhait, l'ambition, la prévision…
