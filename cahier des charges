@@ -10,7 +10,7 @@ Quand les users sont connecté a l'ipad ? ( valid login mdp)
 Quans ont ils téléchargés les jeux ?
 ( Connaitre la version du jeu installé) ?
 Connaitre la liste des ipad de l'utilisateur?
-
+Créer un script qui nénère la BDD
 
 Utilisateur
 	password : hash
@@ -37,6 +37,9 @@ Date de creation / date de modification des fichiers autre données ?
 	-> chaque table aura une dateCreation et dateModification ?
 
 Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocker ?
+
+
+
 
 
 MEMO
