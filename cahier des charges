@@ -6,24 +6,25 @@ Base de donnée utilisée
 Question a résoudre
 
 Quand les users sont connectés ?
-Quand les users sont connectés a l'ipad ? ( validation login mdp)
+Quand les users sont connectés a l'ipad ? ( validation login mdp) // ?
 Quand ont ils téléchargés les jeux ?
 // ( Connaitre la version du jeu installé) ?
 Connaitre la liste des ipad de l'utilisateur?
 Créer un script qui génère la BD
 
 Utilisateur
-	password : hash
+	password : hash // longueur ?
 	nom/DisplayName
-	email/login id
+	email/login // id unique
 Utilsateur peut etre un admin ou pas
 jeton d'authentification pour acceder a l'ipad .?? l'ipad genere un jeton et est stocké dans user et peut etre changé ce qui imposera de se relogguer si different.
 
 Jeux
 	ensemble de fichier/ Un dossier
-	shortName  (id) chaine de caracteres
-	(path) // a mettre?
-	version du jeu //
+	shortName // (id) chaine de caracteres //
+	(path) // a mettre
+	//version du jeu
+	metadonnée dans le fichier JSON // Quoi est ce que ?
 
 Organisation d'utilisateur // mieux définir ce terme
 	// possede un nom ?
@@ -37,9 +38,6 @@ Date de creation / date de modification des fichiers autre données ?
 	-> chaque table aura une dateCreation et dateModification ?
 
 Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocker ?
-
-
-
 
 
 MEMO
