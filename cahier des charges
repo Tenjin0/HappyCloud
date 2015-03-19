@@ -3,6 +3,7 @@ BUT : Permettre de télécharger/gérer des jeux ipad sur internet via le compte
 Base de donnée utilisée
 	PostGreSQL intérêt : champs JSON pour faire des requête dessus
 
+
 Question a résoudre
 
 Quand les users sont connectés ?
@@ -40,7 +41,13 @@ Date de creation / date de modification des fichiers autre données ?
 	-> chaque table aura une dateCreation et dateModification ?
 
 Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocker ?
+Quand on se connecte la liste des jeux disponibles par rapport au compte. Le jeu est deja installé soit a etre update soit pret a jouer.
 
+Sur les ipad il y a des jeux téléchargés. Certains jeux sont possédés par le compte d'autres non. L'ipad est utilisé par une organisation ( pour des raisons logistiques car tous les jeux ne sont pas installés sur chaques ipads)
+
+QUESTION QUE JE ME POSE
+
+Le  jeu a été dl par qui sur quel device?
 
 QUESTION A POSER
 
