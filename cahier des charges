@@ -31,6 +31,8 @@ Organisation d'utilisateur // mieux définir ce terme
 	plusieurs utilisateurs peuvent appartenir a une organisation
 	un utilisateur ne peut appartenir a plus d'une organisation a la fois
 
+Quand l'utilisateur est connecté un token est généré par le serveur et est renvoyé au device.Le token est unique dans le device.
+
 Différence entre administrateur plateforme et administrateur organisation
 	-> un champ acces ?
 
@@ -39,6 +41,11 @@ Date de creation / date de modification des fichiers autre données ?
 
 Metadonnée en lecture seule dans les fichiers de jeux // Qu'il y a t il a dedans ? a stocker ?
 
+
+QUESTION A POSER
+
+Creation userAccount par qui ?
+Connaitre la liste des ipads ?
 
 MEMO
 qqoqpc
