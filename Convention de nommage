@@ -3,8 +3,9 @@ Convention de nommage
 Tout en anglais
 
 CamlCasing
-entite/table : CamlCasing Premier caractere en majuscule
+entite/table :  CamlCasing Premier caractere en majuscule
 				key auto increment serial ID_< nom de la table >
+				Mot au singulier
 attribut : CamlCasing
 
 association : verbe infinitif anglais
