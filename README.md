@@ -7,5 +7,5 @@ HappyCloudV2Centralized : Les logs sont centralisé dans une seule entité Activ
 
 HappyCloudV3AllVersion : contient toutes les versions
 
-HappyCloudV4SemiCentralized : contient la derniere version avec une centralisation des activités a l'exeption de l'acquisition des jeux avec une organisation
+HappyCloudV4SemiCentralized : Les logs sont scindé en deux Device et Account et Organisation qui acquiert des jeux qui ne sont pas forcement installé sur les ipad qui leurs sont assignés.
 
