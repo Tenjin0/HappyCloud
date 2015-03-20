@@ -1,0 +1,6 @@
+NOTES
+
+create new role
+sudo -u postgres createuser -D -A -P mynewuser
+create database
+sudo -u postgres createdb -O mynewuser mydatabase
