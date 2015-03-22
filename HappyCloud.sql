@@ -2,7 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS public."Organisation"(
 'ID_Organisation' SERIAL PRIMARY KEY,
-'organisationName' varchar(59) NOT NULL,
+'organisationName' varchar(50) NOT NULL,
 'organisationEmail' varchar(50) NOT NULL
 )
 
@@ -17,6 +17,9 @@ CREATE TABLE IF NOT EXISTS public."UserAccount"(
 CONSTRAINT prk FOREIGN KEY FK_ID_Organisation REFERENCES public."Organisation"(ID_Organisation)
 )
 
+CREATE TABLE IF NOT EXISTS public."Device"(
+'ID_Device' SERIAL PRIMARY KEY,
+
+)
 CREATE TABLE IF NOT EXISTS public."Game"()
-CREATE TABLE IF NOT EXISTS public."Device"()
 CREATE TABLE IF NOT EXISTS public.""()

@@ -20,14 +20,14 @@ CREATE TABLE public."UserAccount"(
 	CONSTRAINT prk_constraint_UserAccount PRIMARY KEY (ID_UserAccount)
 )WITHOUT OIDS;
 
-CREATE TABLE public.Game(
+CREATE TABLE public."Game"(
 	ID_Game        SERIAL NOT NULL ,
 	shortName      VARCHAR (25) NOT NULL ,
 	longName       VARCHAR (25)  ,
 	version        VARCHAR (25) NOT NULL ,
 	path           VARCHAR (25) NOT NULL ,
 	metaData       VARCHAR (2000)  NOT NULL ,
-	signUpDateGame TIMESTAMPTZ NOT NULL ,
+	signUpDateGame TIMESTAMP NOT NULL ,
 	CONSTRAINT prk_constraint_Game PRIMARY KEY (ID_Game)
 )WITHOUT OIDS;
 
@@ -50,7 +50,7 @@ CREATE TABLE public."ActivityDevice"(
 CREATE TABLE public."ActivityAccount"(
 	ID_ActivityAccount    SERIAL NOT NULL ,
 	typeActivityOnAccount VARCHAR (25)  ,
-	ActivityAccountDate   TIMESTAMPTZ NOT NULL ,
+	ActivityAccountDate   TIMESTAMP NOT NULL ,
 	ID_UserAccount        INT  NOT NULL ,
 	ID_Organisation       INT  NOT NULL ,
 	CONSTRAINT prk_constraint_ActivityAccount PRIMARY KEY (ID_ActivityAccount)

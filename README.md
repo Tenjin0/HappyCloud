@@ -1,6 +1,5 @@
 # HappyCloud
 
-
 HappyCloudV1Decentralized : Les logs sont dispatchés entre les différentes associations entre les entités
 
 HappyCloudV2Centralized : Les logs sont centralisé dans une seule entité Activity

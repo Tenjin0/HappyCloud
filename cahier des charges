@@ -47,10 +47,8 @@ Sur les ipad il y a des jeux téléchargés. Certains jeux sont possédés par l
 
 REGLE DE GESTION
 
--  2 comptes ne peuvent pas etre log en meme temps // 'connecter' 'deconnecter'?
-	2 utilisateurs en meme temps sur le meme IPAD
-
-- Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs ( admin ) qui le feront.
+- 2 comptes ne peuvent pas etre log en meme temps // 'connecter' 'deconnecter'?
+  2 utilisateurs en meme temps sur le meme IPAD
 
 - Une organisation
 
@@ -63,10 +61,14 @@ QUESTION A POSER
 
 Creation userAccount par qui ? Non pas besoin de savoir
 Plusieurs activite peut etre elle faite au meme moment sur un meme device ?
-Connaitre la liste des ipads ?
+Connaitre la liste des ipads pour une organisation ?
+
+- Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs ( admin ) qui le feront. (A CONFIMER)
 
 MEMO
+
 qqoqpc
+
 Q 	Qui ? 	De qui, Avec qui, Pour le compte de qui… 	Responsable, acteur, sujet, cible…
 Q 	Quoi ? 	Quoi, Avec quoi, en relation avec quoi… 	Outil, objet, résultat, objectif…
 O 	Où ? 	Où, par où, vers où… 	Lieu, service…
