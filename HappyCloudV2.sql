@@ -21,10 +21,20 @@ CREATE TABLE IF NOT EXISTS public."UserAccount"(
 CREATE TABLE IF NOT EXISTS public."Game"(
 	'ID_Game' SERIAL PRIMARY KEY,
 	'shortName' varchar(50)
-	'longName' varchar(50)
-	'version' varchar(50)
-	'path' varchar(50)
-	'metaData' Text;
+	'longName' varchar(50),
+	'version' varchar(50) NOT NULL,
+	'path' varchar(50) NOT NULL,
+	'metaData' Text NOT NULL,
+	'activeGame' boolean NOT NULL,
 )
-CREATE TABLE IF NOT EXISTS public."Device"()
-CREATE TABLE IF NOT EXISTS public.""()
+
+CREATE TABLE IF NOT EXISTS public."Device"(
+	'UniqueIDDevice' varchar(50) PRIMARY KEY,
+	'plateFormType' varchar(50),
+	'authentificationTokken' varchar(50),
+	'activeDevice' boolean NOT NULL
+)
+
+CREATE TABLE IF NOT EXISTS public."Activity"(
+
+)

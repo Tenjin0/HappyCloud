@@ -45,10 +45,17 @@ Quand on se connecte la liste des jeux disponibles par rapport au compte. Le jeu
 
 Sur les ipad il y a des jeux téléchargés. Certains jeux sont possédés par le compte d'autres non. L'ipad est utilisé par une organisation ( pour des raisons logistiques car tous les jeux ne sont pas installés sur chaques ipads)
 
+CAS D'UTILISATION
+
+ Un user account admin peut modifier les account de son organisation ( non necessite de connaitre la personne qui a mofifié)
+ Il peut modifie aussi les données  de l'organisation.
+ Toutes ces changements doivent etre logués.
+
+
 REGLE DE GESTION
 
--  2 comptes ne peuvent pas etre log en meme temps // 'connecter' 'deconnecter'?
-	2 utilisateurs en meme temps sur le meme IPAD
+-2 comptes ne peuvent pas etre log en meme temps // 'connecter' 'deconnecter'?
+ 2 utilisateurs en meme temps sur le meme IPAD
 
 - Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs ( admin ) qui le feront.
 
@@ -62,8 +69,22 @@ Le  jeu a été dl par qui sur quel device?
 QUESTION A POSER
 
 Creation userAccount par qui ? Non pas besoin de savoir
-Plusieurs activite peut etre elle faite au meme moment sur un meme device ?
-Connaitre la liste des ipads ?
+
+chartre de nommage ?
+Sur un meme device peut on avoir un lof d'activite au meme moment ?
+Connaitre la liste des ipads pour une oganisation?
+
+trigger : nom prenom email MAJ OU MIN?
+
+verification date de modification apres date de creation ? ( normalement pas besoin avec un trigger timeStamp)
+
+Que veut on comme log
+	"CONNECT" "DISCONNECT" : User + Device
+	"CREATE" | "MODIFY" : Account User + Organisation
+	"INSTALL" "UPDATE" : Device + Game + User
+	"ACQUIRE" : Organisation + Game
+	"ASSIGN" : Organisation ° Device
+
 
 MEMO
 qqoqpc
