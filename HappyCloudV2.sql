@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS public."UserAccount"(
 
 CREATE TABLE IF NOT EXISTS public."Game"(
 	'ID_Game' SERIAL PRIMARY KEY,
-	'shortName' varchar(50)
-	'displayName' varchar(50),
+	'shortName' varchar(50) NOT NULL,
+	'displayName' varchar(50) NOT NULL,
 	'version' varchar(50) NOT NULL,
 	'path' varchar(50) NOT NULL,
 	'metaData' Text NOT NULL,
@@ -30,11 +30,12 @@ CREATE TABLE IF NOT EXISTS public."Game"(
 
 CREATE TABLE IF NOT EXISTS public."Device"(
 	'UniqueIDDevice' varchar(50) PRIMARY KEY,
-	'plateFormType' varchar(50),
-	'authentificationTokken' varchar(50),
+	'plateFormType' varchar(50) NOT NULL,
+	'authentificationTokken' varchar(50) NOT NULL,
 	'active' boolean NOT NULL
 )
 
 CREATE TABLE IF NOT EXISTS public."Activity"(
-
+	'ID_activity' SERIAL PRIMARY KEY,
+	'typeActivity' NOT NULL
 )
