@@ -1,0 +1,36 @@
+﻿DROP TABLE IF EXISTS public."UserAccount" CASCADE;
+DROP TABLE IF EXISTS public."Organisation" CASCADE;
+
+CREATE TABLE IF NOT EXISTS public."Organisation"(
+	"ID_Organisation" SERIAL PRIMARY KEY,
+	"name" varchar(50) NOT NULL,
+	"email" varchar(50) NOT NULL,
+	"creationDate" timeStamptz DEFAULT current_timestamp,
+	"active" boolean NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS public."UserAccount"(
+	"ID_User" SERIAL PRIMARY KEY,
+	"display_Name" varchar(50) NOT NULL,
+	"email" varchar(50) UNIQUE NOT NULL,
+	"password" varchar(50) NOT NULL,
+	"access_Level" integer NOT NULL,
+	"creationDate" timeStamptz DEFAULT current_timestamp,
+	"FK_ID_Organisation" INT NOT NULL,
+	"active"  boolean NOT NULL,
+	FOREIGN KEY ("FK_ID_Organisation") REFERENCES public."Organisation"("ID_Organisation")
+);
+
+INSERT INTO "Organisation" ("name","email","creationDate")
+VALUES ('monOrganisation','monEmail@hotmail.com', current_timestamp);
+
+INSERT INTO "Organisation" ("name","email")
+VALUES ('tonOrganisation','monEmail@gmail.com');
+
+INSERT INTO "Organisation" ("name","email")
+VALUES ('tonOrganisation','monEmail@gmail.com');
+
+INSERT INTO "Organisation" ("name","email")
+VALUES ('tonOrganisation','monEmail@gmail.com');
+
+SELECT * FROM "Organisation";

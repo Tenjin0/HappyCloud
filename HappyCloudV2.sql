@@ -1,11 +1,13 @@
-DROP TABLE IF EXISTS public."Organisation"
-DROP TABLE IF EXISTS public."UserAccount"
-DROP TABLE IF EXISTS public."Game"
-DROP TABLE IF EXISTS public."Device"
-DROP TABLE IF EXISTS public."Activity"
-DROP TYPE Activity IF EXISTS
+DROP TABLE IF EXISTS public."UserAccount" CASCADE;
+DROP TABLE IF EXISTS public."Organisation" CASCADE;
+DROP TABLE IF EXISTS public."Game" CASCADE;
+DROP TABLE IF EXISTS public."Device" CASCADE;
+DROP TABLE IF EXISTS public."Activity" CASCADE;
+DROP TYPE IF EXISTS public."Type_Activity" CASCADE;
+DROP TYPE IF EXISTS public."Type_Access" CASCADE;
 
-CREATE TYPE Activity AS ENUM ('ACQUIRE','ASSIGN','CONNECT','CREATE','DISCONNECT','INSTALL','MODIFY','UPDATE');
+CREATE TYPE public."Type_Activity" AS ENUM ('ACQUIRE','ASSIGN','CONNECT','CREATE','DISCONNECT','INSTALL','MODIFY','UPDATE');
+CREATE TYPE public."Type_Access" AS ENUM ('ADMIN','USER')
 
 CREATE TABLE IF NOT EXISTS public."Organisation"(
 	"ID_Organisation" SERIAL PRIMARY KEY,
@@ -19,7 +21,7 @@ CREATE TABLE IF NOT EXISTS public."UserAccount"(
 	"display_Name" varchar(50) NOT NULL,
 	"email" varchar(50) UNIQUE NOT NULL,
 	"password" varchar(50) NOT NULL,
-	"access_Level" integer NOT NULL,
+	"access_Level" Type_Access NOT NULL,
 	"FK_ID_Organisation" INT NOT NULL,
 	"active"  boolean NOT NULL
 );
@@ -44,7 +46,7 @@ CREATE TABLE IF NOT EXISTS public."Device"(
 CREATE TABLE IF NOT EXISTS public."Activity"(
 	"ID_activity" SERIAL PRIMARY KEY,
 	"data_Activity" timeStamptz NOT NULL,
-	"type_Activity" Activity NOT NULL,
+	"type_Activity" public."Type_Activity" NOT NULL,
 	"FK_ID_Game" INT NOT NULL,
 	"FK_ID_Device" varchar(50) NOT NULL,
 	"FK_ID_User" INT NOT NULL,
