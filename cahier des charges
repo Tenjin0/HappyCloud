@@ -58,7 +58,7 @@ Aucun
 -2 comptes ne peuvent pas etre log en meme temps // 'connecter' 'deconnecter'?
  2 utilisateurs en meme temps sur le meme IPAD
 
-- Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs ( admin ) qui le feront.
+- Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs  qui le feront.
 
 - Une organisation
 
@@ -68,7 +68,8 @@ Un device peut il etre utilise par d'autres organisation ?
 Le  jeu a été dl par qui sur quel device?
 
 QUESTION A POSER
-
+On se log juste pour update ou install un jeu.
+On lance le launcher auth n'est pas obligatoire pour lancer un jeu.
 Creation userAccount par qui ? Non pas besoin de savoir
 
 chartre de nommage ? minuscule avec _
@@ -88,6 +89,11 @@ Que veut on comme log OK
 	"ACQUIRE" : Organisation + Game  ? Pas besoin
 	"ASSIGN" : Organisation ° Device
 
+
+TODO
+
+Faire triggers
+Faire procedures stockées
 
 MEMO
 qqoqpc

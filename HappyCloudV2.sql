@@ -3,10 +3,10 @@ DROP TABLE IF EXISTS public."Organisation" CASCADE;
 DROP TABLE IF EXISTS public."Game" CASCADE;
 DROP TABLE IF EXISTS public."Device" CASCADE;
 DROP TABLE IF EXISTS public."Activity" CASCADE;
-DROP TYPE IF EXISTS public."Type_Activity" CASCADE;
+DROP TYPE IF EXISTS public."Type_Log" CASCADE;
 DROP TYPE IF EXISTS public."Type_Access" CASCADE;
 
-CREATE TYPE public."Type_Activity" AS ENUM ('ACQUIRE','ASSIGN','CONNECT','CREATE','DISCONNECT','INSTALL','MODIFY','UPDATE');
+CREATE TYPE public."Type_Log" AS ENUM ('ACQUIRE','ASSIGN','CONNECT','CREATE','DISCONNECT','INSTALL','MODIFY','UPDATE');
 CREATE TYPE public."Type_Access" AS ENUM ('ADMIN','USER')
 
 CREATE TABLE IF NOT EXISTS public."Organisation"(
@@ -43,18 +43,17 @@ CREATE TABLE IF NOT EXISTS public."Device"(
 	"active" boolean NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS public."Activity"(
-	"ID_activity" SERIAL PRIMARY KEY,
-	"data_Activity" timeStamptz NOT NULL,
-	"type_Activity" public."Type_Activity" NOT NULL,
+CREATE TABLE IF NOT EXISTS public."Log"(
+	"ID_Log" SERIAL PRIMARY KEY,
+	"timeStamp_log" timeStamptz NOT NULL,
+	"type_log" public."Type_Log" NOT NULL,
 	"FK_ID_Game" INT NOT NULL,
 	"FK_ID_Device" varchar(50) NOT NULL,
-	"FK_ID_User" INT NOT NULL,
-	"FK_ID_Organisation" INT NOT NULL
+	"FK_ID_User" INT NOT NULL
 );
 
 ALTER TABLE public."UserAccount" ADD CONSTRAINT "FK_ID_Organisation_UserAccount" FOREIGN KEY ("FK_ID_Organisation") REFERENCES public."Organisation"("ID_Organisation");
 ALTER TABLE public."Activity" ADD CONSTRAINT "FK_ID_Game_Activity" FOREIGN KEY ("FK_ID_Game") REFERENCES public."Game"("ID_Game");
 ALTER TABLE public."Activity" ADD CONSTRAINT "FK_ID_Device_Activity" FOREIGN KEY ("FK_ID_Device") REFERENCES public."Device"("Unique_ID_Device");
 ALTER TABLE public."Activity" ADD CONSTRAINT "FK_ID_User_Activity" FOREIGN KEY ("FK_ID_User") REFERENCES public."UserAccount"("ID_User");
-ALTER TABLE public."Activity" ADD CONSTRAINT "FK_ID_Organisation_Activity" FOREIGN KEY ("FK_ID_Organisation") REFERENCES public."Organisation"("ID_Organisation");
+
