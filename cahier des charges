@@ -58,7 +58,7 @@ REGLE DE GESTION
 Aucun
 
 
-- Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs ( admin ) qui le feront.
+- Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs  qui le feront.
 
 
 - Une organisation
@@ -72,7 +72,8 @@ Le  jeu a été dl par qui sur quel device?
 
 
 QUESTION A POSER
-
+On se log juste pour update ou install un jeu.
+On lance le launcher auth n'est pas obligatoire pour lancer un jeu.
 Creation userAccount par qui ? Non pas besoin de savoir
 
 - Tous les jeux et ( toutes leurs dernieres versions ) ne sont pas installés automatiquement sur les IPAD ce sont les utilisateurs ( admin ) qui le feront. (A CONFIMER)
@@ -94,6 +95,11 @@ Que veut on comme log OK
 	"ACQUIRE" : Organisation + Game  ? Pas besoin
 	"ASSIGN" : Organisation ° Device
 
+
+TODO
+
+Faire triggers
+Faire procedures stockées
 
 MEMO
 
