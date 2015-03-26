@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS public."UserAccount"(
 	"creationDate" timeStamptz DEFAULT current_timestamp NOT NULL,
 	"FK_ID_Organisation" INT NOT NULL,
 	"active"  boolean NOT NULL DEFAULT TRUE,
-	FOREIGN KEY ("FK_ID_Organisation") REFERENCES public."Organisation"("ID_Organisation")
+
 );
 
 INSERT INTO "Organisation" ("name","email","creationDate")

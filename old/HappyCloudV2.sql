@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS public."Game"(
 CREATE TABLE IF NOT EXISTS public."Device"(
 	"Unique_ID_Device" varchar(50) PRIMARY KEY,
 	"plateForm_Type" varchar(50) NOT NULL,
-	"authentification_Tokken" varchar(50) NOT NULL,
+	"authentication_Tokken" varchar(50) NOT NULL,
 	"active" boolean NOT NULL
 );
 
