@@ -87,13 +87,11 @@ Connaitre la liste des ipads pour une oganisation? Oui
 trigger : nom prenom email MAJ OU MIN?
 
 verification date de modification apres date de creation ? ( normalement pas besoin avec un trigger timeStamp)
+	"CREATE" | "MODIFY" : Account User + Organisation - attribut
 
 Que veut on comme log OK
-	"CONNECT" "DISCONNECT" : User + Device
-	"CREATE" | "MODIFY" : Account User + Organisation
-	"INSTALL" "UPDATE" : Device + Game + User
-	"ACQUIRE" : Organisation + Game  ? Pas besoin
-	"ASSIGN" : Organisation ° Device
+	"CONNECT" : User + Device
+	"INSTALL" : Device + Game + User
 
 
 TODO
@@ -113,3 +111,16 @@ C 	Comment ? 	de quelle façon, dans quelles conditions, par quel procédé… 	
 C 	Combien ? 	Dans quelle mesure, valeurs en cause, à quelle dose… 	Quantités, budget…
 P 	Pourquoi ? 	Cause, facteur déclenchant 	Justification par les causes qui ont amené à… (la « raison » d'être, la croyance)
 Pour quoi ? 	Motif, finalité, objectif 	Justification par le souhait, l'ambition, la prévision…
+
+26/03/2015
+
+Un device est lié a un compte utilisateur.
+
+Le tokken est généré dans la base par une procedure stockée random + timeStamp
+Si log out or uninstall remove tokken on device
+si changement de mdp génération d'un nouveau tokken
+date de la derniere modification dans Table user
+Pas de table de metadonnée car la recherche d'un instance d'une metadonnée est trop couteuse.
+Au niveau conceptuel la table log ne doit pas etre utilise pour rechercher les liens entre les entités.
+( jointure, memoire, si le log devien tres gros aussi)
+L'ID du log doit etre incrementé et ne doit pas dépendre de clés étrangères ( conception )
