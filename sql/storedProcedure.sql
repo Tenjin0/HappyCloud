@@ -23,3 +23,19 @@ ELSE
 END IF;
 END;
 $body$ language 'plpgsql';
+-- http://dba.stackexchange.com/questions/1883/how-do-i-install-pgcrypto-for-postgresql-in-ubuntu-server
+
+DROP FUNCTION IF EXiSTS "createTokken"();
+CREATE OR REPLACE FUNCTION "createTokken"() RETURNS varchar AS $body$
+BEGIN
+	
+END;
+$body$ language 'plpgsql';
+
+DROP FUNCTION IF EXiSTS "user_game_list"();
+CREATE OR REPLACE FUNCTION "user_game_list"() RETURNS text AS $body$
+BEGIN 
+	RETURN SELECT * FROM "Assign";
+END;
+$body$ language 'plpgsql';
+
