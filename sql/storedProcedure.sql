@@ -9,7 +9,7 @@ $body$ language 'plpgsql';
 
 DROP FUNCTION IF EXISTS "isAUser"(varchar,varchar);
 CREATE OR REPLACE FUNCTION "isAUser"(varchar,varchar) RETURNS text AS $body$
-DECLARE result ints;
+DECLARE result int;
   isValid boolean;
 BEGIN
 SELECT "ID_User" FROM "UserAccount" WHERE "UserAccount"."email_user" = $1 AND "UserAccount".password = $2 INTO result;
