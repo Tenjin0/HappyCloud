@@ -14,9 +14,9 @@ DECLARE result int;
 BEGIN
 SELECT "ID_User" FROM "UserAccount" WHERE "UserAccount"."email_user" = $1 AND "UserAccount".password = $2 INTO result;
 raise notice '%',result;
-if result NOTNULL THEN
+IF result NOTNULL THEN
   INSERT INTO "Log"("type_log","FK_ID_User")
-  VALUES('INSTALL',result);
+  VALUES('CONNECT',result);
   RETURN (SELECT "authentication_tokken" FROM "UserAccount" where "ID_User" = result);
 ELSE
   RETURN result;
@@ -28,14 +28,15 @@ $body$ language 'plpgsql';
 DROP FUNCTION IF EXiSTS "createTokken"();
 CREATE OR REPLACE FUNCTION "createTokken"() RETURNS varchar AS $body$
 BEGIN
-	
+
 END;
 $body$ language 'plpgsql';
 
-DROP FUNCTION IF EXiSTS "user_game_list"();
-CREATE OR REPLACE FUNCTION "user_game_list"() RETURNS text AS $body$
-BEGIN 
-	RETURN SELECT * FROM "Assign";
+DROP FUNCTION IF EXiSTS "user_assign_games"(int);
+CREATE OR REPLACE FUNCTION "user_assign_games"(int) RETURNS text
+AS $body$
+BEGIN
+	RETURN SELECT * FROM "Assign" where "Assign".ID_User = $1;
 END;
 $body$ language 'plpgsql';
 

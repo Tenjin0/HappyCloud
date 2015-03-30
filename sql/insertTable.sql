@@ -1,11 +1,10 @@
-﻿
+
 INSERT INTO "Organisation" ("name","email")
 VALUES ('monOrganisation','monEmail@hotmail.com');
 
 INSERT INTO "Organisation" ("name","email")
 VALUES ('tonOrganisation','monEmail@gmail.com');
 
-SELECT * FROM "Organisation";
 
 INSERT INTO "UserAccount"
 VALUES  (DEFAULT, 1, 'Tenji', 'patricepetit@hotmail.com','pass', 'hashcode', 'ADMIN', DEFAULT, DEFAULT, DEFAULT);

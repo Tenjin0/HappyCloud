@@ -5,7 +5,7 @@ DECLARE
 BEGIN
 	raise notice '% %',random(), now();
 	--key := 1000 * random() || now();
-	key := random() || now();
+	key := (cast random() as text) || now();
 	RETURN md5(key);
 END;
 $body$ language 'plpgsql';
