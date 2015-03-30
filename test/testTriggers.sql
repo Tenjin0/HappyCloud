@@ -20,3 +20,21 @@ ELSE
 END IF;
 END;
 $$ language 'plpgsql';
+
+do $$
+BEGIN
+INSERT INTO "User" ("display_name","email","password","role")
+VALUES  ('MARTIN','DUPONT@hotmail.com','hashcode','USER');
+EXCEPTION when OTHERS then
+	raise notice 'the insertion has failed !!!!! -----> % %',SQLERRM, SQLSTATE;
+END;
+$$ language 'plpgsql';
+
+do $$
+BEGIN
+INSERT INTO "User" ("display_name","email","password","role")
+VALUES ('DUPONT','dupont@hotmail.com','hashcode','TOTO');
+EXCEPTION when OTHERS then
+	raise notice 'the insertion has failed !!!!! -----> % %',SQLERRM, SQLSTATE;
+END;
+$$ language 'plpgsql';

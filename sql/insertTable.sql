@@ -6,32 +6,16 @@ INSERT INTO "Organisation" ("name","email")
 VALUES ('tonOrganisation','monEmail@gmail.com');
 
 
-INSERT INTO "User"
-VALUES  (DEFAULT, 1, 'Tenji', 'patricepetit@hotmail.com','pass1', 'hashcode', 'ADMIN', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "User"("display_name","email","password","role")
+VALUES  ('Tenji', 'patricepetit@hotmail.com','pass1', 'ADMIN');
 
-INSERT INTO "User"
-VALUES (DEFAULT, 1,'DUPOND','DUPOND@hotmail.com','pass2','hashcode','ADMIN', DEFAULT , DEFAULT, DEFAULT);
+INSERT INTO "User"("display_name","email","password","role")
+VALUES  ('DUPOND','DUPOND@hotmail.com','pass2', 'USER');
 
-INSERT INTO "User"
-VALUES  (DEFAULT, 2,'DUPONT','DUPONT@hotmail.com','pass3','hashcode','USER', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "User"("display_name","email","password","role")
+VALUES  ('DUPONT','DUPONT@hotmail.com','pass3','USER');
 
-do $$
-BEGIN
-INSERT INTO "User" ("display_name","email","password","role")
-VALUES  ('MARTIN','DUPONT@hotmail.com','hashcode','USER');
-EXCEPTION when OTHERS then
-	raise notice 'the insertion has failed !!!!! -----> % %',SQLERRM, SQLSTATE;
-END;
-$$ language 'plpgsql';
 
-do $$
-BEGIN
-INSERT INTO "User" ("display_name","email","password","role")
-VALUES ('DUPONT','dupont@hotmail.com','hashcode','TOTO');
-EXCEPTION when OTHERS then
-	raise notice 'the insertion has failed !!!!! -----> % %',SQLERRM, SQLSTATE;
-END;
-$$ language 'plpgsql';
 
 INSERT INTO "Device" ("ID_Device","name")
 VALUES  ('00000002', 'ipad');

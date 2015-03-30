@@ -1,4 +1,4 @@
 \i createTable.sql
-\i trigger.sql
 \i storedProcedure.sql
+\i trigger.sql
 \i insertTable.sql
