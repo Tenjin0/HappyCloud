@@ -5,6 +5,7 @@ CREATE FUNCTION "functionTest"() RETURNS VOID AS $functionTest$
 	END;
 $functionTest$ language 'plpgsql';
 
+
 CREATE OR REPLACE FUNCTION "create_tokken"() RETURNS varchar(100) AS $body$
 
 DECLARE
@@ -30,25 +31,27 @@ CREATE FUNCTION "isValidUser"(argtokken varchar,argemail varchar,argpassword var
 				SELECT "ID_User","authentication_tokken" FROM "User" WHERE "User"."email" = argemail AND password = crypt(argpassword, password) INTO result,tokken;
 			ELSE
 				result := null;
+				tokken := null;
 			END IF;
 			IF result IS NOT NULL THEN
 
 	  			INSERT INTO "Log"("type_log","FK_ID_User") VALUES('CONNECT',result);
 				RAISE notice '%',result;
 
-				IF tokken IS NOT NULL THEN
-	  				RETURN tokken;
+				-- IF tokken IS NOT NULL THEN
+	  	-- 			RETURN tokken;
 
-	  			ELSEIF argemail IS NOT NULL AND argpassword IS NOT NULL THEN
-	  				RETURN (SELECT "authentication_tokken" FROM "User" where "ID_User" = result);
+	  	-- 		ELSEIF argemail IS NOT NULL AND argpassword IS NOT NULL THEN
+	  	-- 			RETURN (SELECT "authentication_tokken" FROM "User" where "ID_User" = result);
 
-				ELSE
-		  			RETURN null;
-		  		END IF;
+				-- ELSE
+		  -- 			RETURN null;
+		  -- 		END IF;
 
-		  		-- RAISE EXCEPTION 'Nonexistent ID --> %', user_id USING HINT = 'Please check your user ID';
+		  		-- RAISE EXCEPTION 'Nonexistent ID --> %', user_id USING HINT = 'Please check your use ID';
 
 			END IF;
+			return tokken;
 
 		END;
 $isValidUser$ language 'plpgsql';
