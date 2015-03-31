@@ -117,3 +117,44 @@ CREATE OR REPLACE FUNCTION "writeToLog"(ID_User integer, ID_Game integer, ID_Dev
 
 $writeToLog$ language 'plpgsql';
 
+CREATE OR REPLACE FUNCTION "installGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
+	AS $installGame$
+		DECLARE
+			dateInstalled timestamptz;
+			dateAssigned timestamptz;
+		BEGIN
+			SELECT date_install FROM "Install" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_Device" = ID_Device INTO dateInstalled;
+			SELECT date_assign FROM "Assign" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_User" = ID_User INTO dateAssigned;
+				raise notice '% %',dateInstalled,dateAssigned;
+				IF dateInstalled IS NULL AND dateAssigned IS NOT NULL THEN
+					INSERT INTO "Install"
+					VALUES ( ID_Game,
+							 ID_Device,
+							 current_timestamp);
+					PERFORM "logInstall"(ID_User, ID_Game, ID_Device);
+				ELSE
+					RAISE EXCEPTION 'Ce jeu ne peut être installé ! Vérifier que vous ayez les droits d accès à ce jeu et que ce jeu n''est pas déjà installé';
+				END IF;
+		END;
+
+$installGame$ language 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION "deleteGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
+	AS $deleteGame$
+		DECLARE
+			dateInstalled timestamptz;
+			dateAssigned timestamptz;
+		BEGIN
+			SELECT date_install FROM "Install" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_Device" = ID_Device INTO dateInstalled;
+			SELECT date_assign FROM "Assign" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_User" = ID_User INTO dateAssigned;
+
+				IF dateInstalled IS NOT NULL AND dateAssigned IS NOT NULL THEN
+					DELETE FROM "Install" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_Device" = ID_Device;
+					PERFORM "logDelete"(ID_User, ID_Game, ID_Device);
+				ELSE
+					RAISE EXCEPTION 'Ce jeu ne peut être désinstallé ! Vérifiez que vous ayez les droits d accès à ce jeu et que ce jeu est bien installé';
+				END IF;
+		END;
+
+$deleteGame$ language 'plpgsql';

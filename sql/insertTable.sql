@@ -37,3 +37,10 @@ VALUES ('irallyeChateau2', 'irallyeChateau2','1.0.1', 'game/iquizz', 'toto');
 INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
 VALUES ('irallyeChateau2', 'irallyeChateau2','1.0.2', 'game/iquizz', 'toto');
 
+
+INSERT INTO "Install"
+VALUES(1,'a1',DEFAULT);
+INSERT INTO "Assign"
+VALUES(1,1,DEFAULT);
+INSERT INTO "Assign"
+VALUES(2,2,DEFAULT);
