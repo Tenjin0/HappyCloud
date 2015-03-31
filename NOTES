@@ -6,4 +6,4 @@ create database
 sudo -u postgres createdb -O mynewuser mydatabase
 
 execute script
-psql -h localhost -d HappyCloud -U Patrice -f mainScript.sql
+psql -h localhost -d HappyCloud -U Username -f sql/mainScript.sql

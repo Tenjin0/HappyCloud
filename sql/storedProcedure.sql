@@ -39,8 +39,7 @@ CREATE FUNCTION "isValidUser"(argtokken varchar,argemail varchar,argpassword var
 
 			IF result IS NOT NULL THEN
 
-	  	-- 		INSERT INTO "Log"("type_log","FK_ID_User") VALUES('CONNECT',result);
-				-- RAISE notice '%',result;
+
 				PERFORM "logConnect"(result);
 
 			END IF;
@@ -125,7 +124,6 @@ CREATE OR REPLACE FUNCTION "installGame"(ID_User integer, ID_Game integer, ID_De
 		BEGIN
 			SELECT date_install FROM "Install" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_Device" = ID_Device INTO dateInstalled;
 			SELECT date_assign FROM "Assign" WHERE "FK_ID_Game" = ID_Game AND "FK_ID_User" = ID_User INTO dateAssigned;
-				raise notice '% %',dateInstalled,dateAssigned;
 				IF dateInstalled IS NULL AND dateAssigned IS NOT NULL THEN
 					INSERT INTO "Install"
 					VALUES ( ID_Game,

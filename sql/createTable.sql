@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS public."User"(
 
 CREATE TABLE IF NOT EXISTS public."Game"(
 	"ID_Game" SERIAL PRIMARY KEY,
-	"shortName" varchar(50) NOT NULL,
+	"short_name" varchar(50) NOT NULL,
 	"display_name" varchar(50) NOT NULL,
 	"version" varchar(50) NOT NULL,
 	"path" varchar(50) NOT NULL,
