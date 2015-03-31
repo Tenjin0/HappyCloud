@@ -1,0 +1,26 @@
+{
+  "name": "HappyCloud",
+  "version": "1.0.0",
+  "description": "HappyCloudV1Decentralized : Les logs sont dispatchés entre les différentes associations entre les entités",
+  "main": "./server/server.coffee",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "pg": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Tenjin0/HappyCloud.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tenjin0/HappyCloud/issues"
+  },
+  "homepage": "https://github.com/Tenjin0/HappyCloud"
+}
