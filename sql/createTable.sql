@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS public."Game"(
 	"path" varchar(50) NOT NULL,
 	"metaData" Text NOT NULL,
 	"active" boolean DEFAULT TRUE NOT NULL,
-	CONSTRAINT "UQ_name_version" UNIQUE ("shortName","version")
+	CONSTRAINT "UQ_name_version" UNIQUE ("short_name","version")
 );
 
 CREATE TABLE IF NOT EXISTS public."Device"(

@@ -22,19 +22,19 @@ VALUES  ('a2', 'ipad');
 INSERT INTO "Device" ("ID_Device","name")
 VALUES  ('a1', 'ipad');
 
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('iquizzVendome', 'iquizzVendome','1.0.1', 'game/iquizz', 'toto');
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('iquizzVendome', 'iquizzVendome','1.0.2', 'game/iquizz', 'toto');
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('iquizzMezzo', 'iquizzMezzo','1.0.1', 'game/iquizz', 'toto');
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('irallyeChateau1', 'irallyeChateau1','1.0.1', 'game/iquizz', 'toto');
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('irallyeSiemens', 'irallyeSiemens','1.0.1', 'game/iquizz', 'toto');
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('irallyeChateau2', 'irallyeChateau2','1.0.1', 'game/iquizz', 'toto');
-INSERT INTO "Game" ("shortName", display_name, version, path, "metaData")
+INSERT INTO "Game" ("short_name", display_name, version, path, "metaData")
 VALUES ('irallyeChateau2', 'irallyeChateau2','1.0.2', 'game/iquizz', 'toto');
 
 

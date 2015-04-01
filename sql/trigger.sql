@@ -17,6 +17,7 @@ FOR EACH ROW EXECUTE PROCEDURE user_modification() ;
 DROP FUNCTION IF EXISTS hash_pwd_Proc() CASCADE;
 CREATE FUNCTION hash_pwd_Proc() RETURNS TRIGGER AS $$
 	BEGIN
+		raise notice 'hash_pwd_Proc % % % %', TG_NAME, TG_OP, TG_RELNAME, TG_LEVEL;
 		NEW."password" := crypt(NEW."password", gen_salt('MD5'));
 		RETURN NEW;
 	END;
@@ -37,5 +38,7 @@ FOR EACH ROW EXECUTE PROCEDURE user_tokken() ;
 
 --- A FINIR
 -- DROP TRIGGER IF EXISTS hash_pwd ON "User" CASCADE;
-CREATE TRIGGER hash_pwd BEFORE INSERT OR UPDATE ON "User"
+CREATE TRIGGER hash_pwd_insert BEFORE INSERT ON "User"
+FOR EACH ROW EXECUTE PROCEDURE hash_pwd_Proc();
+CREATE TRIGGER hash_pwd_update BEFORE UPDATE OF password ON "User"
 FOR EACH ROW EXECUTE PROCEDURE hash_pwd_Proc();
