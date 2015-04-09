@@ -10,16 +10,19 @@ $functionTest$ language 'plpgsql';
 CREATE OR REPLACE FUNCTION "create_tokken"() RETURNS varchar(100) AS $create_tokken$
 	DECLARE
 		key varchar(100);
+		loop boolean = true;
+
 		BEGIN
-			key := crypt(random()::text,gen_salt('md5'))::text || crypt(now()::text,gen_salt('md5'))::text;
+			LOOP
+			key := crypt(random() || now()::text, gen_salt('bf'));
+			EXIT WHEN (Select * FROM "User" WHERE "User".password <> key);
+			END LOOP;
 			RETURN key;
 		END;
 $create_tokken$ language 'plpgsql';
 
-
-
-DROP FUNCTION IF EXISTS "isValidUser"(argtokken varchar,argemail varchar,argpassword varchar);
-CREATE FUNCTION "isValidUser"(argtokken varchar,argemail varchar,argpassword varchar) RETURNS text AS $isValidUser$
+DROP FUNCTION IF EXISTS "isValidTokken"(argtokken varchar,argemail varchar,argpassword varchar);
+CREATE FUNCTION "isValidTokken"(argtokken varchar,argemail varchar,argpassword varchar) RETURNS text AS $isValidTokken$
 		DECLARE result int;
 			tokken text;
 		BEGIN
@@ -46,7 +49,55 @@ CREATE FUNCTION "isValidUser"(argtokken varchar,argemail varchar,argpassword var
 			return tokken;
 
 		END;
+$isValidTokken$ language 'plpgsql';
+
+DROP FUNCTION IF EXISTS "isValid"(argtokken varchar,argemail varchar,argpassword varchar);
+CREATE FUNCTION "isValid"(argtokken varchar,argemail varchar,argpassword varchar) RETURNS text AS $isValid$
+		DECLARE result int;
+			tokken text;
+		BEGIN
+			IF argtokken IS NOT NULL THEN
+				SELECT "ID_User", "authentication_tokken" FROM "User" WHERE "User"."authentication_tokken" = argtokken INTO result,tokken;
+
+			ELSEIF argemail IS NOT NULL AND argpassword IS NOT NULL THEN
+
+				SELECT "ID_User","authentication_tokken" FROM "User" WHERE "User"."email" = argemail AND password = crypt(argpassword, password) INTO result,tokken;
+
+			ELSE
+
+				result := null;
+				tokken := null;
+
+			END IF;
+
+			IF result IS NOT NULL THEN
+
+
+				PERFORM "logConnect"(result);
+
+			END IF;
+			return tokken;
+
+		END;
+$isValid$ language 'plpgsql';
+
+DROP FUNCTION IF EXISTS "isValidUser"(argemail varchar,argpassword varchar);
+CREATE FUNCTION "isValidUser"(argemail varchar,argpassword varchar) RETURNS text AS $isValidUser$
+		BEGIN
+			return "isValid"(null, argemail, argpassword);
+		END;
 $isValidUser$ language 'plpgsql';
+
+
+
+DROP FUNCTION IF EXISTS "isValidTokken"(argtokken varchar);
+CREATE FUNCTION "isValidTokken"(argtokken varchar) RETURNS text AS $isValidTokken$
+
+		BEGIN
+			return "isValid"(argtokken, null, null);
+		END;
+$isValidTokken$ language 'plpgsql';
+
 -- http://dba.stackexchange.com/questions/1883/how-do-i-install-pgcrypto-for-postgresql-in-ubuntu-server
 -- pgcrypt -> nodeJS (hashage/sallage/crypto)
 
@@ -57,7 +108,6 @@ CREATE FUNCTION "user_assign_games"(int) RETURNS text
 			RETURN(SELECT * FROM "Assign" where "Assign".ID_User = $1);
 		END;
 $user_assign_games$ language 'plpgsql';
-
 
 
 CREATE OR REPLACE FUNCTION "logInstall"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS VOID
@@ -116,7 +166,7 @@ CREATE OR REPLACE FUNCTION "writeToLog"(ID_User integer, ID_Game integer, ID_Dev
 
 $writeToLog$ language 'plpgsql';
 
-CREATE OR REPLACE FUNCTION "installGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
+CREATE OR REPLACE FUNCTION "installedGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
 	AS $installGame$
 		DECLARE
 			dateInstalled timestamptz;
@@ -138,7 +188,7 @@ CREATE OR REPLACE FUNCTION "installGame"(ID_User integer, ID_Game integer, ID_De
 $installGame$ language 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION "deleteGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
+CREATE OR REPLACE FUNCTION "deletedGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
 	AS $deleteGame$
 		DECLARE
 			dateInstalled timestamptz;
