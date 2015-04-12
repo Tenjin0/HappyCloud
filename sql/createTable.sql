@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS public."User"(
 	"FK_ID_Organisation" INT NULL,
 	"display_name" varchar(50) NOT NULL,
 	"email" varchar(50) UNIQUE NOT NULL,
-	"password" varchar(50) NOT NULL,
+	"password" varchar(100) NOT NULL,
 	"authentication_tokken" varchar(100) UNIQUE NULL,
 	"role" "Type_Access" NOT NULL,
 	"created" timeStamptz DEFAULT current_timestamp NOT NULL,

@@ -10,12 +10,12 @@ $functionTest$ language 'plpgsql';
 CREATE OR REPLACE FUNCTION "create_tokken"() RETURNS varchar(100) AS $create_tokken$
 	DECLARE
 		key varchar(100);
-		loop boolean = true;
 
 		BEGIN
+
 			LOOP
 			key := crypt(random() || now()::text, gen_salt('bf'));
-			EXIT WHEN (Select * FROM "User" WHERE "User".password <> key);
+			EXIT WHEN (Select count(*) <> 1 FROM "User" WHERE "password" = key);
 			END LOOP;
 			RETURN key;
 		END;
@@ -109,6 +109,21 @@ CREATE FUNCTION "user_assign_games"(int) RETURNS text
 		END;
 $user_assign_games$ language 'plpgsql';
 
+CREATE OR REPLACE FUNCTION "writeToLog"(ID_User integer, ID_Game integer, ID_Device varchar(50), action "Type_Log") RETURNS VOID
+	AS $writeToLog$
+		BEGIN
+			INSERT INTO "Log"
+			VALUES (
+				DEFAULT,
+				current_timestamp,
+				action,
+				ID_User,
+				ID_Game,
+				ID_Device
+				);
+		END;
+
+$writeToLog$ language 'plpgsql';
 
 CREATE OR REPLACE FUNCTION "logInstall"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS VOID
 	AS $logInstall$
@@ -150,21 +165,7 @@ $logConnect$ language 'plpgsql';
 
 
 
-CREATE OR REPLACE FUNCTION "writeToLog"(ID_User integer, ID_Game integer, ID_Device varchar(50), action "Type_Log") RETURNS VOID
-	AS $writeToLog$
-		BEGIN
-			INSERT INTO "Log"
-			VALUES (
-				DEFAULT,
-				current_timestamp,
-				action,
-				ID_User,
-				ID_Game,
-				ID_Device
-				);
-		END;
 
-$writeToLog$ language 'plpgsql';
 
 CREATE OR REPLACE FUNCTION "installedGame"(ID_User integer, ID_Game integer, ID_Device varchar(50)) RETURNS void
 	AS $installGame$
